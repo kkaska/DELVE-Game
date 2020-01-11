@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Player/wee_mons_fighter_atk_d_1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Player/wee_mons_fighter_idle_d_1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Player/wee_mons_fighter_idle_d_2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Player/wee_mons_fighter_idle_r_1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Player/wee_mons_fighter_idle_r_2.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3.03271, 5.01572 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Move",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 4.6195
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 11.5915
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "Move"
+speed_scale = 0.5
+playing = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.2, 0.2 )
+
+[node name="Range" type="Area2D" parent="."]
+light_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource( 3 )
+
+[node name="EnemyRange" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyRange"]
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_entered" from="EnemyRange" to="." method="_on_EnemyRange_body_entered"]

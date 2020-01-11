@@ -1,0 +1,249 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Menu_Control.gd" type="Script" id=1]
+[ext_resource path="res://Assets/logo.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Settings_Control.gd" type="Script" id=3]
+[ext_resource path="res://Assets/WASD.png" type="Texture" id=4]
+
+[node name="Main" type="Node"]
+
+[node name="Menu_Control" type="Control" parent="."]
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -300.0
+margin_right = 200.0
+margin_bottom = 300.0
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="Menu_Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1000.0
+margin_top = -478.771
+margin_right = 1000.0
+margin_bottom = 521.229
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="Menu_Control/Panel"]
+margin_left = 1003.7
+margin_top = 447.91
+margin_right = 1803.7
+margin_bottom = 1047.91
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Button_Start" type="Button" parent="Menu_Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -126.0
+margin_top = -100.0
+margin_right = 125.0
+margin_bottom = -50.0
+text = "START"
+
+[node name="Button_Settings" type="Button" parent="Menu_Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -126.0
+margin_right = 125.0
+margin_bottom = 50.0
+text = "SETTINGS"
+
+[node name="Button_Exit" type="Button" parent="Menu_Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -126.0
+margin_top = 100.0
+margin_right = 125.0
+margin_bottom = 150.0
+text = "EXIT"
+
+[node name="Settings_Control" type="Control" parent="Menu_Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -332.0
+margin_top = -250.0
+margin_right = 332.0
+margin_bottom = 249.0
+script = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="Menu_Control/Settings_Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="LB_Music" type="Label" parent="Menu_Control/Settings_Control"]
+margin_left = 300.0
+margin_top = 63.0
+margin_right = 384.0
+margin_bottom = 77.0
+text = "Music :"
+align = 2
+
+[node name="LB_Resolution" type="Label" parent="Menu_Control/Settings_Control"]
+margin_left = 7.0
+margin_top = 45.0
+margin_right = 83.0
+margin_bottom = 59.0
+text = "Resolution :"
+
+[node name="LB_Video" type="Label" parent="Menu_Control/Settings_Control"]
+margin_left = 29.0
+margin_top = 11.0
+margin_right = 274.0
+margin_bottom = 25.0
+text = "Video"
+align = 1
+
+[node name="CB_Fullscreen" type="CheckBox" parent="Menu_Control/Settings_Control/LB_Video"]
+margin_left = 20.0
+margin_top = 65.0
+margin_right = 160.0
+margin_bottom = 89.0
+text = "Fullscreen"
+align = 1
+
+[node name="Option_Resolution" type="OptionButton" parent="Menu_Control/Settings_Control/LB_Video"]
+margin_left = 62.0
+margin_top = 30.0
+margin_right = 225.0
+margin_bottom = 50.0
+text = "640x480"
+align = 1
+items = [ "640x480", null, false, 0, null, "800x480", null, false, 1, null, "1024x768", null, false, 2, null, "1200x900", null, false, 3, null, "1280x1024", null, false, 4, null, "1440x900", null, false, 5, null, "1680x1050", null, false, 6, null, "1600x900", null, false, 7, null, "1600x1200", null, false, 8, null, "1366x768", null, false, 9, null, "1368x768", null, false, 10, null, "1920x1200", null, false, 11, null, "2560x1600", null, false, 12, null, "1280x720", null, false, 13, null, "1920x1080", null, false, 14, null, "2560x1440", null, false, 15, null, "2560x1600", null, false, 16, null ]
+selected = 0
+
+[node name="LB_Audio" type="Label" parent="Menu_Control/Settings_Control"]
+margin_left = 285.0
+margin_top = 11.0
+margin_right = 640.0
+margin_bottom = 25.0
+text = "Audio"
+align = 1
+
+[node name="HS_General" type="HSlider" parent="Menu_Control/Settings_Control/LB_Audio"]
+margin_left = 115.0
+margin_top = 23.0
+margin_right = 350.0
+margin_bottom = 39.0
+value = 100.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="HS_Music" type="HSlider" parent="Menu_Control/Settings_Control/LB_Audio"]
+margin_left = 115.0
+margin_top = 50.0
+margin_right = 350.0
+margin_bottom = 66.0
+value = 100.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="HS_SE" type="HSlider" parent="Menu_Control/Settings_Control/LB_Audio"]
+margin_left = 115.0
+margin_top = 76.0
+margin_right = 350.0
+margin_bottom = 92.0
+value = 100.0
+tick_count = 10
+ticks_on_borders = true
+
+[node name="CB_Mute" type="CheckBox" parent="Menu_Control/Settings_Control/LB_Audio"]
+margin_left = 35.0
+margin_top = 106.0
+margin_right = 168.0
+margin_bottom = 130.0
+text = "Mute"
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="Menu_Control/Settings_Control"]
+margin_left = 28.0
+margin_top = 25.0
+margin_right = 271.0
+margin_bottom = 31.0
+
+[node name="LB_General" type="Label" parent="Menu_Control/Settings_Control"]
+margin_left = 300.0
+margin_top = 36.0
+margin_right = 384.0
+margin_bottom = 50.0
+text = "General :"
+align = 2
+
+[node name="VSeparator" type="VSeparator" parent="Menu_Control/Settings_Control"]
+margin_left = 279.0
+margin_top = 12.0
+margin_right = 284.0
+margin_bottom = 268.0
+
+[node name="HSeparator2" type="HSeparator" parent="Menu_Control/Settings_Control"]
+margin_left = 291.0
+margin_top = 25.0
+margin_right = 642.0
+margin_bottom = 31.0
+
+[node name="LB_SE" type="Label" parent="Menu_Control/Settings_Control"]
+margin_left = 291.0
+margin_top = 89.0
+margin_right = 384.0
+margin_bottom = 103.0
+text = "Sound Effects :"
+
+[node name="Button_Return" type="Button" parent="Menu_Control/Settings_Control"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -38.0
+margin_right = 130.0
+margin_bottom = -18.0
+text = "Return"
+
+[node name="Button_Save" type="Button" parent="Menu_Control/Settings_Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -38.0
+margin_right = -10.0
+margin_bottom = -18.0
+text = "Save &  apply"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Menu_Control"]
+
+[node name="WASD" type="TextureRect" parent="."]
+margin_left = 32.727
+margin_top = 401.24
+margin_right = 1201.73
+margin_bottom = 1245.24
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+
+[connection signal="pressed" from="Menu_Control/Button_Start" to="Menu_Control" method="_on_Button_Start_pressed"]
+[connection signal="pressed" from="Menu_Control/Button_Settings" to="Menu_Control" method="_on_Button_Settings_pressed"]
+[connection signal="pressed" from="Menu_Control/Button_Exit" to="Menu_Control" method="_on_Button_Exit_pressed"]
+[connection signal="toggled" from="Menu_Control/Settings_Control/LB_Video/CB_Fullscreen" to="Menu_Control/Settings_Control" method="_on_CB_FS_toggled"]
+[connection signal="item_selected" from="Menu_Control/Settings_Control/LB_Video/Option_Resolution" to="Menu_Control/Settings_Control" method="_on_Option_Resolution_item_selected"]
+[connection signal="value_changed" from="Menu_Control/Settings_Control/LB_Audio/HS_General" to="Menu_Control/Settings_Control" method="_on_HS_General_value_changed"]
+[connection signal="value_changed" from="Menu_Control/Settings_Control/LB_Audio/HS_Music" to="Menu_Control/Settings_Control" method="_on_HS_Music_value_changed"]
+[connection signal="value_changed" from="Menu_Control/Settings_Control/LB_Audio/HS_SE" to="Menu_Control/Settings_Control" method="_on_HS_SE_value_changed"]
+[connection signal="toggled" from="Menu_Control/Settings_Control/LB_Audio/CB_Mute" to="Menu_Control/Settings_Control" method="_on_CB_Mute_toggled"]
+[connection signal="pressed" from="Menu_Control/Settings_Control/Button_Return" to="Menu_Control/Settings_Control" method="_on_Button_Return_pressed"]
+[connection signal="pressed" from="Menu_Control/Settings_Control/Button_Save" to="Menu_Control/Settings_Control" method="_on_Button_Save_pressed"]
